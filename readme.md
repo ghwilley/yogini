@@ -1,6 +1,3 @@
 # Yogini
 
-[![npm](https://img.shields.io/npm/v/botkit.svg)](https://www.npmjs.com/package/botkit)
-[![David](https://img.shields.io/david/howdyai/botkit.svg)](https://david-dm.org/howdyai/botkit)
-[![npm](https://img.shields.io/npm/l/botkit.svg)](https://spdx.org/licenses/MIT)
-
+Yogini is a slack bot for handling stretch goals during a project. Members add and then vote on what goals to attempt next. Yogini was built off of [Botkit](https://github.com/howdyai/botkit).
