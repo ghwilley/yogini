@@ -193,14 +193,19 @@ controller.hears(['call me (.*)', 'my name is (.*)'], 'direct_message,direct_men
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 controller.hears(['add goal (.*)', 'add stretch goal (.*)'], 'direct_message,direct_mention,mention', function(bot, message) {
-    var goal = message.match[1];
+    var body = message.match[1];
     bot.reply(message, 'First');
     controller.storage.goals.get(message.user, function(err, goal) {
         bot.reply(message, 'Second');
+        if (!goal) {
+            goal = {
+                id: message.goal,
+            };
+        }
 
-        // goals.goal = goal; //~~~~~~ ADD GOAL TO LIST HERE
+        goal.body = body; //~~~~~~ ADD GOAL TO LIST HERE
         controller.storage.goals.save(goal, function(err, id) {
-            bot.reply(message, 'Got it. Added the stretch goal: ' + goal.name + '.');
+            bot.reply(message, 'Got it. Added the stretch goal: "' + goal.body + '".');
         });
     });
 });
