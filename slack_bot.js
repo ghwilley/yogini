@@ -54,7 +54,7 @@ controller.hears(['hello', 'hi', 'hey'], 'direct_message,direct_mention,mention'
 
     controller.storage.users.get(message.user, function(err, user) {
         if (user && user.name) {
-            bot.reply(message, 'Whaddup ' + user.name + '!!');
+            bot.reply(message, 'Whaddup ' + user.name + '!! Namaste for a while.');
         } else {
             bot.reply(message, 'Whaddup whaddup.');
         }
@@ -149,7 +149,7 @@ controller.hears(['shutdown'], 'direct_message,direct_mention,mention', function
 
     bot.startConversation(message, function(err, convo) {
 
-        convo.ask('Are you sure you want me to shutdown?', [
+        convo.ask('Are you sure you want me to Namaleave?', [
             {
                 pattern: bot.utterances.yes,
                 callback: function(response, convo) {
