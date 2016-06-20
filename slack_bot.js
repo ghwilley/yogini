@@ -198,9 +198,9 @@ controller.hears(['add goal (.*)', 'add stretch goal (.*)'], 'direct_message,dir
     controller.storage.goals.get(message.user, function(err, goal) {
         bot.reply(message, 'Second');
 
-        goals.goal = goal; //~~~~~~ ADD GOAL TO LIST HERE
+        // goals.goal = goal; //~~~~~~ ADD GOAL TO LIST HERE
         controller.storage.goals.save(goal, function(err, id) {
-            bot.reply(message, 'Got it. I will call you ' + goal.name + ' from now on.');
+            bot.reply(message, 'Got it. Added the stretch goal: ' + goal.name + '.');
         });
     });
 });
